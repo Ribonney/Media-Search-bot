@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 async def start(bot, message):
     """Start command handler"""
     buttons = [[
-        InlineKeyboardButton('Search Here', switch_inline_query_current_chat=''),
-        InlineKeyboardButton('Go Inline', switch_inline_query=''),
+        InlineKeyboardButton('Aramaya Başla', switch_inline_query_current_chat=''),
+        InlineKeyboardButton('Uzaktan Erişim', switch_inline_query=''),
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     await message.reply(START_MSG, reply_markup=reply_markup)
@@ -45,10 +45,10 @@ async def channel_info(bot, message):
 @Client.on_message(filters.command('total') & filters.user(ADMINS))
 async def total(bot, message):
     """Show total files in database"""
-    msg = await message.reply("Processing...⏳", quote=True)
+    msg = await message.reply("işleniyor...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'📁 Saved files: {total}')
+        await msg.edit(f'📁 Kayıtlı Veri: {total}')
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
@@ -73,7 +73,7 @@ async def delete(bot, message):
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
 
-    for file_type in ("document", "video", "audio"):
+    for file_type in ("document", "video", "audio", "voice"):
         media = getattr(reply, file_type, None)
         if media is not None:
             break
