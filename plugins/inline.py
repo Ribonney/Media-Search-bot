@@ -46,8 +46,9 @@ async def answer(bot, query):
     else:
 
         switch_pm_text = f'{emoji.CROSS_MARK} Depoda Böyle Ses Kaydı Bulunamadı!'
+        bosindex= ''
         if string:
-            "" += f' "{string}" İsimli Kayıt Bulunamadı!'
+            bosindex += f' "{string}" İsimli Kayıt Bulunamadı!'
 
         await query.answer(results=[],
                            cache_time=CACHE_TIME,
