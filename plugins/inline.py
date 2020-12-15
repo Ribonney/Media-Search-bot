@@ -36,7 +36,7 @@ async def answer(bot, query):
     if results:
         switch_pm_text = f"{emoji.FILE_FOLDER} Depoda"
         if string:
-            switch_pm_text += f"{string} İçin Arama Yapılıyor..."
+            switch_pm_text += f" {string} İçin Arama Yapılıyor..."
 
         await query.answer(results=results,
                            cache_time=CACHE_TIME,
