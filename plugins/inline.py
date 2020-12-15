@@ -34,9 +34,9 @@ async def answer(bot, query):
                 description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}'))
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Depo"
+        switch_pm_text = f"{emoji.FILE_FOLDER} Depoda"
         if string:
-            switch_pm_text += f" for {string}"
+            switch_pm_text += f"{string} İçin Arama Yapılıyor..."
 
         await query.answer(results=results,
                            cache_time=CACHE_TIME,
@@ -45,9 +45,9 @@ async def answer(bot, query):
                            next_offset=str(next_offset))
     else:
 
-        switch_pm_text = f'{emoji.CROSS_MARK} Depoda'
+        switch_pm_text = f'{emoji.CROSS_MARK} Depoda Böyle Ses Kaydı Bulunamadı!'
         if string:
-            switch_pm_text += f' "{string}" İsimli Kayıt Bulunamadı!'
+            "" += f' "{string}" İsimli Kayıt Bulunamadı!'
 
         await query.answer(results=[],
                            cache_time=CACHE_TIME,
