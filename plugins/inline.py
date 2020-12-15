@@ -52,7 +52,7 @@ async def answer(bot, query):
 
         await query.answer(results=[],
                            cache_time=CACHE_TIME,
-                           switch_pm_text=switch_pm_text,
+                           switch_pm_text=bosindex,
                            switch_pm_parameter="okay")
 
 
